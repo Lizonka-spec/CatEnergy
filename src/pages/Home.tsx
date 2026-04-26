@@ -1,3 +1,4 @@
+import { LivingExample } from "@/widgets/LivingExample";
 import { Promo, TeaserList } from "../features/index";
 import { ItemGroup } from "../widgets";
 
@@ -7,6 +8,7 @@ export const Home = () => {
             <Promo />
             <TeaserList />
             <ItemGroup />
+            <LivingExample />
         </div>
     );
 };

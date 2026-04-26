@@ -8,3 +8,4 @@ export { DecrementButton } from "./ui/DecrementButton";
 export { Counter } from "./ui/Counter";
 export { Searching } from "./Searching";
 export { FiltersProduct } from "./ui/FiltersProduct";
+export { CatSlider } from "./CatSlider";
