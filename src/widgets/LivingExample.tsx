@@ -2,25 +2,35 @@ import { CatSlider } from "@/features";
 
 export const LivingExample = () => {
     return (
-        <div className="px-5 mt-10 flex flex-col justify-between">
-            <h2 className="font-oswald text-4xl font-semibold">Живой пример</h2>
-            <p className="text-xs text-gray-500">
-                Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim.
-                Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и
-                по-прежнему спит по 16 часов в день.
-            </p>
-            <div>
-                <div>
-                    <span>5 кг</span>
-                    <span>снижение веса</span>
+        <div className="px-5 mt-10 flex flex-col gap-10 lg:flex-row 2xl:mx-10">
+            <div className="lg:w-[45%]">
+                <div className="mb-10">
+                    <h2 className="font-oswald text-4xl font-semibold mb-10">Живой пример</h2>
+                    <p className="text-xs text-gray-500 md:text-lg">
+                        Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat
+                        Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не
+                        менял своих привычек и по-прежнему спит по 16 часов в день.
+                    </p>
                 </div>
-                <div>
-                    <span>60 дней</span>
-                    <span>затрачено времени</span>
-                </div>
-                <div>
-                    <span>Затраты на питание</span>
-                    <span>15 000 руб</span>
+                <div className="flex flex-col md:flex-row md:justify-between lg:flex-col">
+                    <div className="flex gap-8 justify-around mb-5 lg:justify-center">
+                        <div className="border border-gray-300 p-5 relative whitespace-nowrap md:p-8">
+                            <span className="font-semibold text-lg uppercase">5 кг</span>
+                            <span className="text-xs absolute -bottom-1.5 left-1/2 -translate-x-1/2 bg-white text-[10px] px-1 md:text-xs">
+                                снижение веса
+                            </span>
+                        </div>
+                        <div className="border border-gray-300 p-5 relative whitespace-nowrap md:p-8">
+                            <span className="font-semibold text-lg uppercase ">60 дней</span>
+                            <span className="text-xs absolute -bottom-1.5 left-1/2 -translate-x-1/2 bg-white text-[10px] px-1 md:text-xs">
+                                затрачено времени
+                            </span>
+                        </div>
+                    </div>
+                    <div className="flex flex-row gap-3 text-right font-oswald uppercase justify-center md:flex-col lg:flex-row">
+                        <span className="md:text-lg">Затраты на питание:</span>
+                        <span className="md:text-lg">15 000 руб</span>
+                    </div>
                 </div>
             </div>
             <CatSlider />
