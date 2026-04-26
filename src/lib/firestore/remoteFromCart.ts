@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { deleteDoc, doc, FirestoreError, getFirestore } from "firebase/firestore";
 
 import { firebaseConfig } from "../firebase/firebase";
-import { FIRESTORE_ERROR } from "@/constants/error";
+import { FIRESTORE_ERROR } from "@/constants/errors/firestore";
 import { getAuth } from "firebase/auth";
 
 const app = initializeApp(firebaseConfig);

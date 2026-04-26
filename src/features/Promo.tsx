@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { ProgramButton, PromoContent } from "../shared";
 
 export const Promo = () => {
+    const navigate = useNavigate();
     return (
         <div className="relative">
             <PromoContent />
@@ -11,7 +13,7 @@ export const Promo = () => {
             >
                 <img src="/index-can.png" alt="Cat Energy" className="object-contain" />
             </div>
-            <ProgramButton />
+            <ProgramButton onClick={() => navigate("/program")} />
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { deleteDoc, doc, FirestoreError, getDoc, getFirestore, setDoc } from "fi
 
 import { firebaseConfig } from "../firebase/firebase";
 import type { ProductType } from "@/widgets/model/product";
-import { FIRESTORE_ERROR } from "@/constants/error";
+import { FIRESTORE_ERROR } from "@/constants/errors/firestore";
 import { getAuth } from "firebase/auth";
 
 const app = initializeApp(firebaseConfig);

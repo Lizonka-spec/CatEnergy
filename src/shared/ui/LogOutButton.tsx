@@ -1,4 +1,4 @@
-import { AUTH_ERRORS, FIREBASE_ERROR } from "@/constants/error";
+import { AUTH_ERRORS, FIREBASE_ERROR } from "@/constants/errors/firebase";
 import type { UserCredentialType } from "@/context/model/types";
 import { useAuth } from "@/hooks/UseAuth";
 import { FirebaseError } from "firebase/app";
