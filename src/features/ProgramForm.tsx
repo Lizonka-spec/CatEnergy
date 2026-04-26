@@ -37,7 +37,7 @@ export const ProgramForm = () => {
                     Заполните анкету, и мы подберем программу питания для вашего кота
                 </p>
             </div>
-            <div className="lg:flex lg:flex-row lg:gap-10">
+            <div className="flex flex-col lg:flex-row lg:gap-10 gap-5">
                 <div className="flex flex-col gap-2 lg:w-[50%]">
                     <div>
                         {errors.name && (
