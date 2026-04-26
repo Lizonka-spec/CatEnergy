@@ -19,7 +19,7 @@ import type { UserCredentialType } from "@/context/model/types";
 
 import { useAuth } from "@/hooks/UseAuth";
 import { useForm } from "react-hook-form";
-import { AUTH_ERRORS, FIREBASE_ERROR } from "@/constants/error";
+import { AUTH_ERRORS, FIREBASE_ERROR } from "@/constants/errors/firebase";
 import { FirebaseError } from "firebase/app";
 
 export function Auth() {
