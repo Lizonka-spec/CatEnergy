@@ -23,7 +23,8 @@ type FormType = {
 export const ProgramForm = () => {
     const {
         register,
-        formState: { errors },
+        reset,
+        formState: { errors, isValid },
     } = useForm<FormType>({
         mode: "onChange",
     });
@@ -188,7 +189,7 @@ export const ProgramForm = () => {
                 </FieldLabel>
             </Field>
             <div className="flex flex-col gap-5 justify-center items-center md:flex-row lg:justify-start">
-                <RequestButton />
+                <RequestButton onClick={() => reset} disabled={!isValid} />
                 <p className="md:text-lg">* — обязательные поля</p>
             </div>
         </form>
