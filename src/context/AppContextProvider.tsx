@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import type { User as FirebaseUser } from "firebase/auth";
 import type { UserCredentialType } from "./model/types";
+import type { catDataType } from "@/lib/Api/googleAI/models/types";
 
 import { onAuthStateChanged } from "firebase/auth";
 import {
@@ -13,6 +14,7 @@ import {
 } from "@/lib/firebase/firebase";
 
 import { AppContext } from "./appContext";
+import { getCatDiet } from "@/lib/Api/googleAI/googleAI";
 
 type AppContextProp = {
     children: ReactNode;
@@ -21,6 +23,8 @@ type AppContextProp = {
 export const AppContextProvider = ({ children }: AppContextProp) => {
     const [user, setUser] = useState<FirebaseUser | undefined | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [planLoading, setPlanLoading] = useState<boolean>(false);
+    const [dietPlan, setDietPlan] = useState<string | null>(null);
 
     useEffect(() => {
         return onAuthStateChanged(auth, (user) => {
@@ -40,14 +44,29 @@ export const AppContextProvider = ({ children }: AppContextProp) => {
     const logOut = async () => {
         await signOut(auth);
     };
+
+    const generateDiet = async (data: catDataType) => {
+        setPlanLoading(true);
+        try {
+            const result = await getCatDiet(data);
+            setDietPlan(result);
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setPlanLoading(false);
+        }
+    };
     return (
         <AppContext.Provider
             value={{
                 user,
                 isLoading,
+                planLoading,
+                dietPlan,
                 logIn,
                 signIn,
                 logOut,
+                generateDiet,
             }}
         >
             {children}

@@ -10,6 +10,7 @@ import { RequestButton } from "@/shared";
 
 import { Mail, PhoneForwarded } from "lucide-react";
 import { PROGRAM_ERRORS } from "@/constants/errors/programform";
+import { useDiet } from "@/hooks/UseDiet";
 
 type FormType = {
     email: string;
@@ -18,19 +19,28 @@ type FormType = {
     age: number;
     weight: number;
     name: string;
+    goal: string;
+    comment: string;
+    extra: string[];
 };
 
 export const ProgramForm = () => {
     const {
         register,
         reset,
+        handleSubmit,
         formState: { errors, isValid },
     } = useForm<FormType>({
         mode: "onChange",
     });
 
+    const { generateDiet } = useDiet();
+
+    const onSubmit = (catData: FormType) => {
+        generateDiet(catData);
+    };
     return (
-        <form className="px-5 flex flex-col gap-5 2xl:mx-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-5 flex flex-col gap-5 2xl:mx-10">
             <div className="flex-col flex gap-2">
                 <h1 className="font-oswald uppercase text-2xl font-semibold">Подбор программы</h1>
                 <p className="text-sm font-oswald text-gray-500 lg:text-lg">
