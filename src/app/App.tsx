@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { MainLayout } from "./layouts";
-import { Home, Auth, Catalog, Cart, Favorites } from "../pages";
+import { Home, Auth, Catalog, Cart, Favorites, Program } from "../pages";
 
 const App = () => {
     return (
@@ -11,7 +11,7 @@ const App = () => {
                 <Route path="catalog" element={<Catalog />} />
                 <Route path="cart" element={<Cart />} />
                 <Route path="favorites" element={<Favorites />} />
-                <Route path="program" />
+                <Route path="program" element={<Program />} />
             </Route>
         </Routes>
     );
