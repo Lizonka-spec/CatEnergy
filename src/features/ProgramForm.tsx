@@ -1,7 +1,6 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 import { Checkbox } from "@/components/ui/checkbox";
-import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -10,6 +9,7 @@ import { RequestButton } from "@/shared";
 
 import { Mail, PhoneForwarded } from "lucide-react";
 import { PROGRAM_ERRORS } from "@/constants/errors/programform";
+import { useDiet } from "@/hooks/UseDiet";
 
 type FormType = {
     email: string;
@@ -18,19 +18,33 @@ type FormType = {
     age: number;
     weight: number;
     name: string;
+    goal: string;
+    comment: string;
+    extra: string[];
 };
 
 export const ProgramForm = () => {
     const {
         register,
-        reset,
-        formState: { errors, isValid },
+        control,
+        handleSubmit,
+        formState: { errors },
     } = useForm<FormType>({
         mode: "onChange",
+        defaultValues: {
+            extra: [],
+            goal: "weightLoss",
+        },
     });
 
+    const { generateDiet } = useDiet();
+
+    const onSubmit = (catData: FormType) => {
+        generateDiet(catData);
+    };
+
     return (
-        <form className="px-5 flex flex-col gap-5 2xl:mx-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-5 flex flex-col gap-5 2xl:mx-10">
             <div className="flex-col flex gap-2">
                 <h1 className="font-oswald uppercase text-2xl font-semibold">Подбор программы</h1>
                 <p className="text-sm font-oswald text-gray-500 lg:text-lg">
@@ -92,6 +106,9 @@ export const ProgramForm = () => {
                 </div>
                 <RadioGroup
                     defaultValue="weightLoss"
+                    onValueChange={(value) =>
+                        register("goal").onChange({ target: { value, name: "goal" } })
+                    }
                     className="w-fit flex flex-col justify-center gap-2 font-oswald uppercase text-gray-900 border border-gray-200 px-5 py-3 mx-auto lg:w-[50%] "
                 >
                     <div className="flex items-center gap-3">
@@ -120,7 +137,7 @@ export const ProgramForm = () => {
                     )}
                     <Input
                         placeholder="*E-MAIL:"
-                        className="border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus-visible:ring-1"
+                        className={`border ${errors.email ? "border-red-500" : "border-gray-300"} focus-visible:ring-1`}
                         id="email"
                         type="email"
                         {...register("email", {
@@ -142,7 +159,7 @@ export const ProgramForm = () => {
                     )}
                     <Input
                         placeholder="*ТЕЛЕФОН:"
-                        className="border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus-visible:ring-1"
+                        className={`border ${errors.phone ? "border-red-500" : "border-gray-300"} focus-visible:ring-1`}
                         id="phone"
                         type="text"
                         {...register("phone", {
@@ -161,37 +178,104 @@ export const ProgramForm = () => {
                 Комментарий
             </h2>
             <Textarea
+                {...register("comment")}
                 placeholder="РАССКАЖИТЕ ОБО ВСЕХ ПОВАДКАХ КОТА"
                 className="w-full h-50 placeholder:text-sm border border-gray-300 focus-visible:ring-1 lg:placeholder:text-lg"
             />
             <h2 className="font-oswald uppercase text-sm border-b border-[#68B738] w-fit md:text-lg">
                 Дополнительно
             </h2>
-            <Field
-                orientation="horizontal"
-                className="grid grid-cols-[auto_1fr] font-oswald uppercase text-gray-900 md:grid-cols-[auto_1fr_auto_1fr] lg:grid-cols-[auto_1fr_auto_1fr_auto_1fr_auto_1fr]"
-            >
-                <Checkbox id="sugar" className="size-5 border border-gray-300 lg:size-7" />
-                <FieldLabel htmlFor="sugar" className="lg:text-lg">
-                    Сахарозаменитель
-                </FieldLabel>
-                <Checkbox id="water" className="size-5 border border-gray-300 lg:size-7" />
-                <FieldLabel htmlFor="water" className="lg:text-lg">
-                    Питьевая вода
-                </FieldLabel>
-                <Checkbox id="milk" className="size-5 border border-gray-300 lg:size-7" />
-                <FieldLabel htmlFor="milk" className="lg:text-lg">
-                    Молоко
-                </FieldLabel>
-                <Checkbox id="vitamins" className="size-5 border border-gray-300 lg:size-7" />
-                <FieldLabel htmlFor="vitamins" className="lg:text-lg">
-                    Витамины
-                </FieldLabel>
-            </Field>
-            <div className="flex flex-col gap-5 justify-center items-center md:flex-row lg:justify-start">
-                <RequestButton onClick={() => reset} disabled={!isValid} />
-                <p className="md:text-lg">* — обязательные поля</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-oswald uppercase">
+                <Controller
+                    name="extra"
+                    control={control}
+                    render={({ field }) => (
+                        <div className="flex items-center gap-3">
+                            <Checkbox
+                                id="sugar"
+                                className="size-5 border border-gray-300 lg:size-7"
+                                checked={field.value.includes("sugar")}
+                                onCheckedChange={(checked) => {
+                                    const next = checked
+                                        ? [...field.value, "sugar"]
+                                        : field.value.filter((v) => v !== "sugar");
+                                    field.onChange(next);
+                                }}
+                            />
+                            <Label htmlFor="sugar" className="lg:text-lg">
+                                Сахарозаменитель
+                            </Label>
+                        </div>
+                    )}
+                />
+                <Controller
+                    name="extra"
+                    control={control}
+                    render={({ field }) => (
+                        <div className="flex items-center gap-3">
+                            <Checkbox
+                                id="water"
+                                className="size-5 border border-gray-300 lg:size-7"
+                                checked={field.value.includes("water")}
+                                onCheckedChange={(checked) => {
+                                    const next = checked
+                                        ? [...field.value, "water"]
+                                        : field.value.filter((v) => v !== "water");
+                                    field.onChange(next);
+                                }}
+                            />
+                            <Label htmlFor="water" className="lg:text-lg">
+                                Питьевая вода
+                            </Label>
+                        </div>
+                    )}
+                />
+                <Controller
+                    name="extra"
+                    control={control}
+                    render={({ field }) => (
+                        <div className="flex items-center gap-3">
+                            <Checkbox
+                                id="milk"
+                                className="size-5 border border-gray-300 lg:size-7"
+                                checked={field.value.includes("milk")}
+                                onCheckedChange={(checked) => {
+                                    const next = checked
+                                        ? [...field.value, "milk"]
+                                        : field.value.filter((v) => v !== "milk");
+                                    field.onChange(next);
+                                }}
+                            />
+                            <Label htmlFor="milk" className="lg:text-lg">
+                                Молоко
+                            </Label>
+                        </div>
+                    )}
+                />
+                <Controller
+                    name="extra"
+                    control={control}
+                    render={({ field }) => (
+                        <div className="flex items-center gap-3">
+                            <Checkbox
+                                id="vitamins"
+                                className="size-5 border border-gray-300 lg:size-7"
+                                checked={field.value.includes("vitamins")}
+                                onCheckedChange={(checked) => {
+                                    const next = checked
+                                        ? [...field.value, "vitamins"]
+                                        : field.value.filter((v) => v !== "vitamins");
+                                    field.onChange(next);
+                                }}
+                            />
+                            <Label htmlFor="vitamins" className="lg:text-lg">
+                                Витамины
+                            </Label>
+                        </div>
+                    )}
+                />
             </div>
+            <RequestButton type="submit">Отправить запрос</RequestButton>
         </form>
     );
 };
