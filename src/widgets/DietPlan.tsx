@@ -72,8 +72,6 @@ export const DietPlan = () => {
                             </li>
                         ),
                         strong: ({ ...props }) => {
-                            // const content = String(props.children).toLowerCase();
-                            // const isCritical = /внимание|критич|опасно|запрещено/i.test(content);
                             return (
                                 <strong
                                     className="font-bold px-1.5 py-0.5 rounded text-[#68B738] bg-green-50"
