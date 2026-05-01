@@ -1,4 +1,4 @@
-import type { catDataType } from "@/lib/Api/googleAI/models/types";
+import type { catDataType } from "@/lib/Api/GroqAI/models/types";
 import type { User as FirebaseUser } from "firebase/auth";
 
 export type AuthContextType = {

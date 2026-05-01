@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import type { User as FirebaseUser } from "firebase/auth";
 import type { UserCredentialType } from "./model/types";
-import type { catDataType } from "@/lib/Api/googleAI/models/types";
+import type { catDataType } from "@/lib/Api/GroqAI/models/types";
 
 import { onAuthStateChanged } from "firebase/auth";
 import {
@@ -14,7 +14,7 @@ import {
 } from "@/lib/firebase/firebase";
 
 import { AppContext } from "./appContext";
-import { getCatDiet } from "@/lib/Api/googleAI/googleAI";
+import { getCatDiet } from "@/lib/Api/GroqAI/GroqAI";
 
 type AppContextProp = {
     children: ReactNode;
