@@ -46,7 +46,7 @@ export const ProgramForm = () => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="px-5 flex flex-col gap-5 mb-15 2xl:mx-10"
+            className="px-5 flex flex-col gap-5 2xl:mx-10"
         >
             <div className="flex-col flex gap-2">
                 <h1 className="font-oswald uppercase text-2xl font-semibold">Подбор программы</h1>

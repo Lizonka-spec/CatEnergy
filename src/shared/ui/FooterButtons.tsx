@@ -3,10 +3,15 @@ import { FaGithubSquare } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 
 export const FooterButtons = () => {
+    const iconStyles =
+        "text-black transition-all duration-300 hover:text-[#68B738] hover:scale-110";
+
     return (
-        <div className="flex flex-row justify-between p-5 lg:mx-10">
-            <h3 className="font-oswald font-bold text-black text-3xl">cat energy</h3>
-            <div>
+        <div className="flex flex-col gap-5 p-5 justify-center items-center md:flex-row md:justify-between lg:mx-10">
+            <div className="border-b border-gray-200 w-full flex justify-center py-5 md:border-none md:py-0 md:w-auto">
+                <h3 className="font-oswald font-bold text-black text-3xl ">cat energy</h3>
+            </div>
+            <div className="flex items-center">
                 <button
                     onClick={() =>
                         window.open(
@@ -15,7 +20,7 @@ export const FooterButtons = () => {
                         )
                     }
                 >
-                    <FaLinkedin size={35} />
+                    <FaLinkedin size={35} className={iconStyles} />
                 </button>
                 <button
                     onClick={() =>
@@ -25,13 +30,15 @@ export const FooterButtons = () => {
                         )
                     }
                 >
-                    <FaGithubSquare size={35} />
+                    <FaGithubSquare size={35} className={iconStyles} />
                 </button>
                 <button onClick={() => window.open("https://github.com/Lizonka-spec")}>
-                    <FaSquareInstagram size={35} />
+                    <FaSquareInstagram size={35} className={iconStyles} />
                 </button>
             </div>
-            <img src="/MyFreedom.jpg" alt="#" className="w-30 h-10" />
+            <div className="border-t border-gray-200 w-full flex justify-center py-5 md:border-none md:py-0 md:w-auto">
+                <img src="/MyFreedom.jpg" alt="#" className="w-40 h-15 object-contain" />
+            </div>
         </div>
     );
 };
