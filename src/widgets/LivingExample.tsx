@@ -1,4 +1,5 @@
 import { CatSlider } from "@/features";
+import CountUp from "react-countup";
 
 export const LivingExample = () => {
     return (
@@ -15,13 +16,17 @@ export const LivingExample = () => {
                 <div className="flex flex-col md:flex-row md:justify-between lg:flex-col">
                     <div className="flex gap-8 justify-around mb-5 lg:justify-center">
                         <div className="border border-gray-300 p-5 relative whitespace-nowrap md:p-8">
-                            <span className="font-semibold text-lg uppercase">5 кг</span>
+                            <span className="font-semibold text-lg uppercase">
+                                <CountUp end={5} duration={1} /> кг
+                            </span>
                             <span className="text-xs absolute -bottom-1.5 left-1/2 -translate-x-1/2 bg-white text-[10px] px-1 md:text-xs">
                                 снижение веса
                             </span>
                         </div>
                         <div className="border border-gray-300 p-5 relative whitespace-nowrap md:p-8">
-                            <span className="font-semibold text-lg uppercase ">60 дней</span>
+                            <span className="font-semibold text-lg uppercase ">
+                                <CountUp end={60} duration={2} /> дней
+                            </span>
                             <span className="text-xs absolute -bottom-1.5 left-1/2 -translate-x-1/2 bg-white text-[10px] px-1 md:text-xs">
                                 затрачено времени
                             </span>
@@ -29,7 +34,9 @@ export const LivingExample = () => {
                     </div>
                     <div className="flex flex-row gap-3 text-right font-oswald uppercase justify-center md:flex-col lg:flex-row">
                         <span className="md:text-lg">Затраты на питание:</span>
-                        <span className="md:text-lg">15 000 руб</span>
+                        <span className="md:text-lg">
+                            <CountUp end={15000} duration={5} /> руб
+                        </span>
                     </div>
                 </div>
             </div>
