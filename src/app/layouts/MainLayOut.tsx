@@ -6,7 +6,7 @@ export const MainLayout = () => {
     return (
         <div className="flex flex-col min-h-screen items-center mx-auto">
             <Header />
-            <main className="grow w-full flex flex-col">
+            <main className="grow w-full flex flex-col mb-15">
                 <Outlet />
                 <Toaster duration={1000} position="top-center" />
             </main>

@@ -10,3 +10,4 @@ export { SkeletonCard } from "./ui/SkeletonCard";
 export { FilterButton } from "./ui/FilterButton";
 export { ResettingFiltersButton } from "./ui/ResettingFiltersButton";
 export { RequestButton } from "./ui/RequestButton";
+export { FooterButtons } from "./ui/FooterButtons";
