@@ -59,10 +59,8 @@ export const FiltersProduct = ({ onApply }: { onApply: (filters: FiltersType) =>
 
     return (
         <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-                <button className="p-2 rounded-lg font-oswald border border-gray-300">
-                    <TbFilterSearch className="text-[#68B738]" size={20} />
-                </button>
+            <SheetTrigger className="p-2 rounded-lg font-oswald border border-gray-300">
+                <TbFilterSearch className="text-[#68B738]" size={20} />
             </SheetTrigger>
 
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white border-gray-300">
