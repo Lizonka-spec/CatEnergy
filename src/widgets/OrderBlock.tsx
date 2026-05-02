@@ -52,7 +52,7 @@ export const OrderBlock = () => {
                                             Заказ №{order.id.slice(0, 8)}...
                                         </span>
                                         <div className="flex gap-2 items-center">
-                                            <Badge variant="outline" className="text-[10px]">
+                                            <Badge variant="outline" className="text-sm">
                                                 {order.status}
                                             </Badge>
                                             <span className="text-xs text-gray-500">
@@ -63,14 +63,18 @@ export const OrderBlock = () => {
                                 </AccordionTrigger>
                                 <AccordionContent>
                                     <div className="space-y-3 pt-2">
-                                        {order.items.map((product, idx) => (
+                                        {order.items.map((product, id) => (
                                             <div
-                                                key={idx}
+                                                key={id}
                                                 className="flex justify-between items-center text-sm border-b border-dashed pb-2"
                                             >
-                                                <span className="flex-1 pr-2">{product.name}</span>
-                                                <span className="font-medium whitespace-nowrap">
-                                                    {product.price} ₽
+                                                <span className="flex-1 pr-2">
+                                                    {product.name} ({product.taste}) —{" "}
+                                                    {product.count}
+                                                    шт.
+                                                </span>
+                                                <span className=" whitespace-nowrap">
+                                                    {(product.price || 0) * (product.count || 1)}₽
                                                 </span>
                                             </div>
                                         ))}

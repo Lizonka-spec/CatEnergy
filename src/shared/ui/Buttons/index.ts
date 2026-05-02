@@ -4,3 +4,4 @@ export { FilterButton } from "./FilterButton";
 export { LogOutButton } from "./LogOutButton";
 export { FooterButtons } from "./FooterButtons";
 export { ResettingFiltersButton } from "./ResettingFiltersButton";
+export { OrderButton } from "./OrderButton";

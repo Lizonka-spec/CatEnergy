@@ -28,11 +28,17 @@ export const createOrder = async (cartItems: ProductType[]) => {
     try {
         const batch = writeBatch(db);
 
+        const finalPrice = cartItems.reduce((acc, item) => {
+            const price = Number(item.price || 0);
+            const count = Number(item.count || 1);
+            return acc + price * count;
+        }, 0);
+
         const ordersData = {
             items: cartItems,
             status: "processing",
-            totalPrice: cartItems.reduce((sum, item) => sum + (item.price || 0), 0),
             createdAt: serverTimestamp(),
+            totalPrice: finalPrice,
         };
 
         await addDoc(ordersItem, ordersData);
