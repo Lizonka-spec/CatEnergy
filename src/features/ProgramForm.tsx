@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { RequestButton } from "@/shared";
+import { RequestButton } from "@/shared/ui/Buttons";
 
 import { Mail, PhoneForwarded } from "lucide-react";
 import { PROGRAM_ERRORS } from "@/constants/errors/programform";

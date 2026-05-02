@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { ProgramButton, PromoContent } from "../shared";
+import { ProgramButton } from "../shared/ui/Buttons";
+import { PromoContent } from "@/shared";
 
 export const Promo = () => {
     const navigate = useNavigate();

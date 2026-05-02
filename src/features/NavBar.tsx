@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
-import { LogOutButton } from "@/shared";
+import { LogOutButton } from "@/shared/ui/Buttons";
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);

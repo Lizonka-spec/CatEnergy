@@ -16,7 +16,7 @@ import {
     SheetDescription,
 } from "@/components/ui/sheet";
 
-import { FilterButton, ResettingFiltersButton } from "@/shared";
+import { FilterButton, ResettingFiltersButton } from "@/shared/ui/Buttons";
 
 import { TbFilterSearch } from "react-icons/tb";
 import { Input } from "@/components/ui/input";
