@@ -43,11 +43,11 @@ export const ProgramForm = () => {
         generateDiet(catData);
     };
 
+    const goalItemStyles =
+        "data-[state=checked]:border-[#33571d] data-[state=checked]:bg-[#68B738]";
+
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="px-5 flex flex-col gap-5 2xl:mx-10"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="px-5 flex flex-col gap-5 2xl:mx-10">
             <div className="flex-col flex gap-2">
                 <h1 className="font-oswald uppercase text-2xl font-semibold">Подбор программы</h1>
                 <p className="text-sm font-oswald text-gray-500 lg:text-lg">
@@ -115,15 +115,15 @@ export const ProgramForm = () => {
                     className="w-fit flex flex-col justify-center gap-2 font-oswald uppercase text-gray-900 border border-gray-200 px-5 py-3 mx-auto lg:w-[50%] "
                 >
                     <div className="flex items-center gap-3">
-                        <RadioGroupItem value="weightLoss" id="r1" />
+                        <RadioGroupItem value="weightLoss" id="r1" className={goalItemStyles} />
                         <Label htmlFor="r1">Похудение</Label>
                     </div>
                     <div className="flex items-center gap-3">
-                        <RadioGroupItem value="weightGain" id="r2" />
+                        <RadioGroupItem value="weightGain" id="r2" className={goalItemStyles} />
                         <Label htmlFor="r2">Набор массы</Label>
                     </div>
                     <div className="flex items-center gap-3">
-                        <RadioGroupItem value="needAdvice" id="r3" />
+                        <RadioGroupItem value="needAdvice" id="r3" className={goalItemStyles} />
                         <Label htmlFor="r3">Не знаю (нужен ваш совет)</Label>
                     </div>
                 </RadioGroup>
