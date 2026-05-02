@@ -11,7 +11,7 @@ import { OrderButton, Searching, FiltersProduct } from "@/features";
 import { ProductBlock, SkeletonList } from "@/widgets";
 
 export const Catalog = () => {
-    const { data: items, isLoading } = useFirestore("products");
+    const { data: items, isLoading } = useFirestore<ProductType>("products");
 
     const [isFiltering, setIsFiltering] = useState(false);
     const [filteredItems, setFilteredItems] = useState<ProductType[] | null>(null);

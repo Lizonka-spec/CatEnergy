@@ -3,4 +3,5 @@ export const FIRESTORE_ERROR = {
     CLONING_ERROR: "Ошибка при клонировании",
     DELETE_ERROR: "Ошибка при удалении",
     FAVORITE_ERROR: "Ошибка при добавлении в избранное",
+    ORDER_ERROR: "Ошибка при оформлении заказа",
 };

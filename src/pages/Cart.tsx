@@ -2,9 +2,10 @@ import { ProductBlock } from "@/widgets";
 import { Counter, DeleteButton } from "@/features";
 import { useFirestore } from "@/hooks/UseFirestore";
 import { SkeletonList } from "@/widgets/SkeletonList";
+import type { ProductType } from "@/widgets/model/product";
 
 export const Cart = () => {
-    const { data: cartItem, isLoading } = useFirestore("cart");
+    const { data: cartItem, isLoading } = useFirestore<ProductType>("cart");
     if (isLoading) return <SkeletonList />;
 
     if (cartItem.length === 0) {
