@@ -24,7 +24,7 @@ export const DietPlan = () => {
 
     return (
         <div className="flex flex-col gap-8 p-6 rounded-3xl bg-white lg:p-12">
-            <div className="w-full flex justify-center bg-slate-50 rounded-2xl py-6">
+            <div className="w-full flex justify-center rounded-2xl py-6">
                 {isSlim && (
                     <img
                         src="/catalog-6-desktop.png"

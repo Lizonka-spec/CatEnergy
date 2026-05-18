@@ -2,9 +2,10 @@ import { ProductBlock } from "@/widgets";
 import { OrderButton } from "@/features";
 import { useFirestore } from "@/hooks/UseFirestore";
 import { SkeletonList } from "@/widgets/SkeletonList";
+import type { ProductType } from "@/widgets/model/product";
 
 export const Favorites = () => {
-    const { data: favItem, isLoading } = useFirestore("favorites");
+    const { data: favItem, isLoading } = useFirestore<ProductType>("favorites");
     if (isLoading) return <SkeletonList />;
 
     if (favItem.length === 0) {

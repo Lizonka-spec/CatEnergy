@@ -1,4 +1,4 @@
-import { Button } from "../index";
+import { Button } from "../../index";
 import { cn } from "@/lib/utils";
 
 export const RequestButton = ({ ...props }) => {

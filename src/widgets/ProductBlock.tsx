@@ -27,7 +27,7 @@ export const ProductBlock = ({ item, children }: ProductCardProps) => {
             </div>
 
             <div className="flex py-4 items-center gap-10 justify-center mb-3 mw:flex-col mw:gap-5 ">
-                <div className="size-20 mw:size-25 lg:size-35">
+                <div className="size-20 mw:size-30 lg:size-35">
                     <img src={item.imageUrl} alt="#" />
                 </div>
 

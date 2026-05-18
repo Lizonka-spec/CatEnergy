@@ -1,6 +1,5 @@
-import { LivingExample } from "@/widgets/LivingExample";
+import { LivingExample, ItemGroup } from "@/widgets";
 import { Promo, TeaserList } from "../features/index";
-import { ItemGroup } from "../widgets";
 
 export const Home = () => {
     return (

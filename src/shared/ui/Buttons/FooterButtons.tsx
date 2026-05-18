@@ -22,6 +22,9 @@ export const FooterButtons = () => {
                 >
                     <FaLinkedin size={35} className={iconStyles} />
                 </button>
+                <button onClick={() => window.open("https://github.com/Lizonka-spec", "_blank")}>
+                    <FaGithubSquare size={35} className={iconStyles} />
+                </button>
                 <button
                     onClick={() =>
                         window.open(
@@ -30,9 +33,6 @@ export const FooterButtons = () => {
                         )
                     }
                 >
-                    <FaGithubSquare size={35} className={iconStyles} />
-                </button>
-                <button onClick={() => window.open("https://github.com/Lizonka-spec")}>
                     <FaSquareInstagram size={35} className={iconStyles} />
                 </button>
             </div>
