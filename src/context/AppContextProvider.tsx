@@ -63,6 +63,7 @@ export const AppContextProvider = ({ children }: AppContextProp) => {
                 isLoading,
                 planLoading,
                 dietPlan,
+                setIsLoading,
                 logIn,
                 signIn,
                 logOut,

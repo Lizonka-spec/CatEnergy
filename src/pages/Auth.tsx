@@ -24,7 +24,7 @@ import { FirebaseError } from "firebase/app";
 import { CircleLoading } from "@/shared";
 
 export function Auth() {
-    const { signIn, logIn } = useAuth();
+    const { signIn, logIn, isLoading, setIsLoading } = useAuth();
     const {
         register,
         handleSubmit,
@@ -38,6 +38,7 @@ export function Auth() {
 
     const onLogIn = async ({ email, pass }: UserCredentialType) => {
         try {
+            setIsLoading(true);
             await logIn({ email, pass });
             navigate("/");
         } catch (error: unknown) {
@@ -49,11 +50,14 @@ export function Auth() {
                     setError("email", { message: errorMessage });
                 }
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
     const onSignIn = async ({ email, pass }: UserCredentialType) => {
         try {
+            setIsLoading(true);
             await signIn({ email, pass });
             navigate("/");
         } catch (error: unknown) {
@@ -65,10 +69,10 @@ export function Auth() {
                     setError("email", { message: errorMessage });
                 }
             }
+        } finally {
+            setIsLoading(false);
         }
     };
-
-    const { isLoading } = useAuth();
 
     return isLoading ? (
         <CircleLoading />
