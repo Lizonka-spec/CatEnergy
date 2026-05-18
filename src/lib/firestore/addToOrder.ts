@@ -36,7 +36,7 @@ export const createOrder = async (cartItems: ProductType[]) => {
 
         const ordersData = {
             items: cartItems,
-            status: "processing",
+            status: "В процессе",
             createdAt: serverTimestamp(),
             totalPrice: finalPrice,
         };
