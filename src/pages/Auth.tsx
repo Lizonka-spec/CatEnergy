@@ -21,6 +21,7 @@ import { useAuth } from "@/hooks/UseAuth";
 import { useForm } from "react-hook-form";
 import { AUTH_ERRORS, FIREBASE_ERROR } from "@/constants/errors/firebase";
 import { FirebaseError } from "firebase/app";
+import { CircleLoading } from "@/shared";
 
 export function Auth() {
     const { signIn, logIn } = useAuth();
@@ -67,7 +68,11 @@ export function Auth() {
         }
     };
 
-    return (
+    const { isLoading } = useAuth();
+
+    return isLoading ? (
+        <CircleLoading />
+    ) : (
         <div className="min-h-screen flex items-center justify-center p-4">
             <Card className="w-full max-w-sm m-auto">
                 <CardHeader>
