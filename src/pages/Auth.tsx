@@ -21,9 +21,10 @@ import { useAuth } from "@/hooks/UseAuth";
 import { useForm } from "react-hook-form";
 import { AUTH_ERRORS, FIREBASE_ERROR } from "@/constants/errors/firebase";
 import { FirebaseError } from "firebase/app";
+import { CircleLoading } from "@/shared";
 
 export function Auth() {
-    const { signIn, logIn } = useAuth();
+    const { signIn, logIn, isLoading, setIsLoading } = useAuth();
     const {
         register,
         handleSubmit,
@@ -37,6 +38,7 @@ export function Auth() {
 
     const onLogIn = async ({ email, pass }: UserCredentialType) => {
         try {
+            setIsLoading(true);
             await logIn({ email, pass });
             navigate("/");
         } catch (error: unknown) {
@@ -48,11 +50,14 @@ export function Auth() {
                     setError("email", { message: errorMessage });
                 }
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
     const onSignIn = async ({ email, pass }: UserCredentialType) => {
         try {
+            setIsLoading(true);
             await signIn({ email, pass });
             navigate("/");
         } catch (error: unknown) {
@@ -64,10 +69,14 @@ export function Auth() {
                     setError("email", { message: errorMessage });
                 }
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    return (
+    return isLoading ? (
+        <CircleLoading />
+    ) : (
         <div className="min-h-screen flex items-center justify-center p-4">
             <Card className="w-full max-w-sm m-auto">
                 <CardHeader>
