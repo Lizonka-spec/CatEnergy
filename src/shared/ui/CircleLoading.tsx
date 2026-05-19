@@ -1,8 +1,15 @@
+import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
-export const CircleLoading = () => {
+type CircleLoadingType = {
+    className: string;
+};
+
+export const CircleLoading = ({ className }: CircleLoadingType) => {
     return (
-        <div className="w-full h-screen flex flex-col justify-center items-center">
+        <div
+            className={(cn("w-full h-screen flex flex-col justify-center items-center"), className)}
+        >
             <motion.div
                 className="size-15 rounded-full border-4 border-gray-200 border-t-[#68B738]"
                 animate={{ transform: "rotate(360deg)" }}
