@@ -1,9 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import { useDiet } from "@/hooks/UseDiet";
 import { useNavigate } from "react-router-dom";
+import { CircleLoading } from "@/shared";
 
 export const DietPlan = () => {
-    const { dietPlan, isLoading } = useDiet();
+    const { dietPlan, planLoading } = useDiet();
 
     const isSlim = dietPlan?.includes("[PROGRAM_SLIM]");
     const isPro = dietPlan?.includes("[PROGRAM_PRO]");
@@ -12,12 +13,8 @@ export const DietPlan = () => {
 
     const navigate = useNavigate();
 
-    if (isLoading) {
-        return (
-            <div className="p-10 text-center font-oswald uppercase text-xl animate-pulse">
-                Загружаем план...
-            </div>
-        );
+    if (planLoading) {
+        return <CircleLoading />;
     }
 
     if (!dietPlan) return null;

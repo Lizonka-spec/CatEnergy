@@ -46,8 +46,8 @@ export const AppContextProvider = ({ children }: AppContextProp) => {
     };
 
     const generateDiet = async (data: catDataType) => {
-        setPlanLoading(true);
         try {
+            setPlanLoading(true);
             const result = await getCatDiet(data);
             setDietPlan(result);
         } catch (err) {
