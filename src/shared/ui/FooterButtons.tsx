@@ -37,7 +37,7 @@ export const FooterButtons = () => {
                 </button>
             </div>
             <div className="border-t border-gray-200 w-full flex justify-center py-5 md:border-none md:py-0 md:w-auto">
-                <img src="/MyFreedom.jpg" alt="#" className="w-40 h-15 object-contain" />
+                <span>© 2026 CatEnergy</span>
             </div>
         </div>
     );
