@@ -1,6 +1,6 @@
 import { YandexMaps } from "@/lib/Api/YandexMaps";
 import { LocationContent } from "../shared/index";
-import { FooterButtons } from "@/shared/ui/Buttons";
+import { FooterButtons } from "@/shared";
 
 export const Footer = () => {
     return (
