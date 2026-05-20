@@ -278,7 +278,13 @@ export const ProgramForm = () => {
                     )}
                 />
             </div>
-            <RequestButton type="submit">Отправить запрос</RequestButton>
+            <div>
+                <RequestButton type="submit">Отправить запрос</RequestButton>
+                <span className="text-sm text-gray-400">
+                    <span className="text-red-600">Важно</span>: Информация носит ознакомительный
+                    характер. Требуется обязательная консультация ветеринара.
+                </span>
+            </div>
         </form>
     );
 };
