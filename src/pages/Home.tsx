@@ -1,5 +1,7 @@
 import { LivingExample, ItemGroup } from "@/widgets";
 import { Promo, TeaserList } from "../features/index";
+import { YandexMaps } from "@/lib/Api/YandexMaps";
+import { LocationContent } from "@/shared";
 
 export const Home = () => {
     return (
@@ -8,6 +10,8 @@ export const Home = () => {
             <TeaserList />
             <ItemGroup />
             <LivingExample />
+            <YandexMaps />
+            <LocationContent />
         </div>
     );
 };

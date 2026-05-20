@@ -3,7 +3,7 @@ import CountUp from "react-countup";
 
 export const LivingExample = () => {
     return (
-        <div className="px-5 mt-10 flex flex-col gap-10 lg:flex-row 2xl:mx-10">
+        <div className="px-5 my-10 flex flex-col gap-10 lg:flex-row 2xl:mx-10">
             <div className="lg:w-[45%]">
                 <div className="mb-10">
                     <h2 className="font-oswald text-4xl font-semibold mb-10">Живой пример</h2>
