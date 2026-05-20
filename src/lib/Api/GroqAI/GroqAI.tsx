@@ -37,12 +37,13 @@ export const getCatDiet = async (catData: catDataType) => {
         vitamins: `ВИТАМИНЫ: Нужен комплекс строго под вес ${weight} кг.`,
     };
 
-    const activeExtras = Array.isArray(catData.extra)
-        ? catData.extra
-              .map((id) => `- ${manual[id as keyof typeof manual]}`)
-              .filter(Boolean)
-              .join("\n")
-        : "Специфических добавок не выбрано. Рекомендуется стандартный курс Омега-3.";
+    const activeExtras =
+        Array.isArray(catData.extra) && catData.extra.length > 0
+            ? catData.extra
+                  .map((id) => `- ${manual[id as keyof typeof manual]}`)
+                  .filter(Boolean)
+                  .join("\n")
+            : "- Специфических добавок не выбрано. Рекомендуется стандартный курс Омега-3.";
 
     const prompt = `
 ${programTag}
