@@ -14,7 +14,9 @@ export const ModalWindow = ({ data, onClose }: ModalType) => {
                     ✕
                 </button>
 
-                <h3>Подробное состояние отправлено {data} из формы программы</h3>
+                <h3 className="font-oswald text-xl font-semibold text-gray-700">
+                    Подробное состояние отправлено {data} из формы программы
+                </h3>
             </div>
         </div>
     );
