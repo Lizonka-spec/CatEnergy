@@ -6,3 +6,5 @@ export { Teaser } from "./template/Teaser";
 export { InfoItem } from "./template/InfoItem";
 export { SkeletonCard } from "./ui/SkeletonCard";
 export { CircleLoading } from "./ui/CircleLoading";
+export { FooterButtons } from "./ui/FooterButtons";
+export { ModalWindow } from "./ui/ModalWindow";
