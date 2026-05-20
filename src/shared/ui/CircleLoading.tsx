@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 type CircleLoadingType = {
-    className: string;
+    className?: string;
 };
 
 export const CircleLoading = ({ className }: CircleLoadingType) => {
