@@ -5,3 +5,5 @@ export { LogOutButton } from "./LogOutButton";
 
 export { ResettingFiltersButton } from "./ResettingFiltersButton";
 export { OrderButton } from "./OrderButton";
+export { SendByEmail } from "./SendByEmail";
+export { SendByTel } from "./SendByTel";

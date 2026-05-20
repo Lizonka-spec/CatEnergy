@@ -10,3 +10,4 @@ export { Searching } from "./Searching";
 export { FiltersProduct } from "./ui/FiltersProduct";
 export { CatSlider } from "./CatSlider";
 export { ProgramForm } from "./ProgramForm";
+export { SendMessage } from "./ui/SendMessage";
