@@ -8,7 +8,7 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const linkClass = ({ isActive }: { isActive: boolean }) =>
-        `pb-1 w-fit mx-auto border-b-2 text-[10px] md:text-sm lg:text-base font-bold uppercase tracking-tighter md:tracking-normal ${
+        `pb-1 w-fit mx-auto border-b-2 text-[9px] md:text-sm lg:text-base font-bold uppercase tracking-tighter md:tracking-normal ${
             isActive ? "border-green-500 text-green-600" : "border-transparent text-slate-600"
         }`;
 
