@@ -53,7 +53,7 @@ export const Navbar = () => {
                 )}
             </div>
 
-            <div className="hidden md:flex items-center gap-6 lg:gap-12 justify-center">
+            <div className="hidden md:flex items-center text-center gap-6 lg:gap-12 justify-center">
                 <NavLink to="/" className={linkClass}>
                     Главная
                 </NavLink>
