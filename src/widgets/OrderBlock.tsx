@@ -90,9 +90,14 @@ export const OrderBlock = () => {
                                                         </div>
 
                                                         <div className="w-auto mw:w-full mw:p-3">
-                                                            <h2 className="font-oswald mb-3 text-center mx-auto text-base text-nowrap">
-                                                                {product.name}
-                                                            </h2>
+                                                            <div className="flex flex-col mb-3">
+                                                                <h2 className="font-oswald text-center mx-auto text-base text-nowrap">
+                                                                    {product.name}
+                                                                </h2>
+                                                                <span className="font-oswald text-center text-left">
+                                                                    {product.count} шт.
+                                                                </span>
+                                                            </div>
 
                                                             <div className="text-[11px] text-gray-700 grid grid-cols-2 gap-x-6 gap-y-2 w-full mw:gap-x-0">
                                                                 <span className="text-sm mw:py-1.5 mw:border-b mw:border-gray-300 lg:text-base">
