@@ -4,7 +4,7 @@ import { Navbar } from "../features/index";
 export const Header = () => {
     return (
         <header className="w-full bg-white p-4">
-            <div className=" flex items-center justify-between">
+            <div className=" flex items-center justify-between md:gap-5">
                 <div className="shrink-0">
                     <Logo />
                 </div>

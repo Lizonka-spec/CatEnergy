@@ -21,7 +21,7 @@ export const ProductBlock = ({ item, children }: ProductCardProps) => {
     }, [item.id]);
 
     return (
-        <div className="relative min-w-5 p-3 mw:bg-gray-100">
+        <div className="relative min-w-5 p-3 mw:bg-gray-100 transition-transform duration-300 hover:scale-105">
             <div className="absolute top-2 right-2 z-10">
                 <FavoriteButton productId={item.id} isInFavorite={isFav} />
             </div>

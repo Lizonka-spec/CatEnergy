@@ -41,7 +41,7 @@ export const Catalog = () => {
             {isLoading || isFiltering ? (
                 <SkeletonList count={6} />
             ) : (
-                <div className="grid grid-cols-1 mw:grid-cols-2 gap-3 mw:p-3 md:grid-cols-4 xl:grid-cols-6">
+                <div className="grid grid-cols-1 mw:grid-cols-2 gap-3 mw:p-3 md:grid-cols-4 xl:grid-cols-6 ">
                     {displayItems.length > 0 ? (
                         displayItems.map((item) => (
                             <ProductBlock key={item.id} item={item}>
