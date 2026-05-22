@@ -6,10 +6,10 @@ import { PrivateRoute } from "./PrivateRoute";
 const App = () => {
     return (
         <Routes>
-            <Route path="/auth" index element={<Auth />} />
-            <Route element={<PrivateRoute />}>
-                <Route element={<MainLayout />}>
-                    <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route element={<MainLayout />}>
+                <Route path="/" index element={<Home />} />
+                <Route element={<PrivateRoute />}>
                     <Route path="catalog" element={<Catalog />} />
                     <Route path="cart" element={<Cart />} />
                     <Route path="favorites" element={<Favorites />} />
